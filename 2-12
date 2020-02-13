@@ -1,0 +1,6 @@
+Author: Daniel McCrevan
+Date: 2-12-2020
+-----------------------
+
+1) I installed prometheus into my k8s cluster by running `helm install stable/prometheus --namespace istio-system`
+2) Ran `istioctl manifest apply --set profile=default --set values.prometheus.enabled=false` to install the istio components 
