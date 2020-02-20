@@ -1,0 +1,24 @@
+Author: Daniel McCrevan
+Date: 2-12-2020
+-----------------------
+
+1) I installed prometheus into my k8s cluster by running `helm install stable/prometheus --namespace istio-system`
+2) Ran `istioctl manifest apply --set profile=default --set values.prometheus.enabled=false` to install the istio components 
+
+
+Date: 2-13-2020
+-------------------
+1) Installed prometheus via deployment YAML with sidecar injection using `istioctl kube-inject -f prometheus-deployment.yaml sudo kubectl apply -f -`
+2) Create a prometheus svc/gw/vs/dr based on demo profile
+
+
+Date: 2-19-2020
+---------------
+1) Installed demo profile, the curl request trace didn't really help
+2) Plan is to try to do this without the sidecar since it seems that the prometheus in the default profile doesn't have a sidecar installed
+3) Installed prometheus configmap/deploy/svc 
+4) Installed istio default manifest
+5) Installed prom gw/vs/dr based on the demo profile
+6) BINGO! IT worked
+7) Works with sidecar too i guess
+8) Need to work out config map next for prometheus to scrape
