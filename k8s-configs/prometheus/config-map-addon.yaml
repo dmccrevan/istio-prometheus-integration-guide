@@ -1,0 +1,17 @@
+- job_name: istio-mesh
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  kubernetes_sd_configs:
+  - role: endpoints
+    namespaces:
+      names:
+      - istio-system
+  relabel_configs:
+  - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: istio-telemetry;prometheus
+    replacement: $1
+    action: keep

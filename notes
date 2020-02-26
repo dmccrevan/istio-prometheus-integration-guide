@@ -22,3 +22,11 @@ Date: 2-19-2020
 6) BINGO! IT worked
 7) Works with sidecar too i guess
 8) Need to work out config map next for prometheus to scrape
+
+
+Date: 2-24-2020
+---------------
+Goal of today is to get prometheus deployed by helm and ingrated into istio since this is far more popular way of deployment
+1) Get prometheus deployed thru helm
+2) Got prometheus deployed through helm fine & deployed the gw/vs/dr and it seemed to be working fine. I am going to re-deploy the istio demo profile to copy a sample scrape job over
+3) NVM,  now the prometheus UI isn't exposed...
